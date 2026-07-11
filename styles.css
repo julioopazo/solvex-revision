@@ -500,11 +500,13 @@ ul { list-style: none; }
     transition: opacity 0.35s var(--ease);
 }
 /* Contenido siempre por encima del glow y de los nodos */
-.card > *:not(.card__glow):not(.card__nodes) { position: relative; z-index: 1; }
+.card > *:not(.card__glow):not(.card__nodes),
+.value-card > *:not(.card__glow):not(.card__nodes),
+.audience-card > *:not(.card__glow):not(.card__nodes) { position: relative; z-index: 1; }
 
 .card:hover { box-shadow: var(--shadow-lg); transform: translateY(-6px) scale(1.04); z-index: 2; }
-.card:hover .card__glow { opacity: 1; }
-.card:hover .card__nodes { opacity: 1; }
+.card:hover .card__glow, .value-card:hover .card__glow, .audience-card:hover .card__glow { opacity: 1; }
+.card:hover .card__nodes, .value-card:hover .card__nodes, .audience-card:hover .card__nodes { opacity: 1; }
 /* Red de nodos y destacado celeste también en el panel Nosotros al hover */
 .nosotros:hover .card__nodes { opacity: 1; }
 .nosotros:hover .card__glow { opacity: 1; }
@@ -777,19 +779,20 @@ ul { list-style: none; }
 ========================================================= */
 .propuesta { padding-top: clamp(4rem, 8vw, 7rem); }
 .value-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--sp-4); }
-.value-card { position:relative; overflow:hidden; min-height:230px; padding:clamp(1.6rem,3vw,2.4rem); border-radius:var(--r-lg); background:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.9); box-shadow:var(--shadow-md); backdrop-filter:blur(16px); transition:transform var(--dur-2) var(--ease),box-shadow var(--dur-2) var(--ease); }
-.value-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.value-card { position:relative; overflow:hidden; min-height:230px; padding:clamp(1.6rem,3vw,2.4rem); border-radius:var(--r-lg); background:var(--grad-brand); color:#fff; border:1px solid rgba(255,255,255,.18); box-shadow:var(--shadow-md); backdrop-filter:blur(16px); transition:transform var(--dur-2) var(--ease),box-shadow var(--dur-2) var(--ease); }
+.value-card:hover { transform:translateY(-6px) scale(1.04); box-shadow:var(--shadow-lg); z-index:2; }
 .value-card--featured { background:var(--grad-brand); color:#fff; }
-.value-card__number { display:inline-grid; place-items:center; width:46px; height:46px; border-radius:14px; background:var(--violeta-soft); color:var(--violeta); font-family:var(--font-display); font-weight:700; margin-bottom:var(--sp-6); }
+.value-card__number { display:inline-grid; place-items:center; width:46px; height:46px; border-radius:14px; background:rgba(255,255,255,.14); color:var(--verde-turquesa); font-family:var(--font-display); font-weight:700; margin-bottom:var(--sp-6); }
 .value-card--featured .value-card__number { background:rgba(255,255,255,.14); color:var(--verde-turquesa); }
-.value-card h3 { font:700 var(--fs-h3)/1.2 var(--font-display); color:var(--azul-profundo); margin-bottom:var(--sp-3); }
+.value-card h3 { font:700 var(--fs-h3)/1.2 var(--font-display); color:#fff; margin-bottom:var(--sp-3); }
 .value-card--featured h3 { color:#fff; }
-.value-card p { color:var(--texto-suave); max-width:48ch; }
-.value-card--featured p { color:rgba(255,255,255,.8); }
+.value-card p { color:rgba(255,255,255,.86); max-width:48ch; }
+.value-card--featured p { color:rgba(255,255,255,.86); }
 
 .publico { background:linear-gradient(180deg,transparent,rgba(93,202,165,.07),transparent); }
 .audience-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:var(--sp-4); }
-.audience-card { padding:var(--sp-6); border-radius:var(--r-lg); background:rgba(255,255,255,.68); border:1px solid rgba(255,255,255,.9); box-shadow:var(--shadow-sm); }
+.audience-card { position:relative; overflow:hidden; padding:var(--sp-6); border-radius:var(--r-lg); background:rgba(255,255,255,.68); border:1px solid rgba(255,255,255,.9); box-shadow:var(--shadow-sm); transition:transform var(--dur-2) var(--ease),box-shadow var(--dur-2) var(--ease); }
+.audience-card:hover { transform:translateY(-6px) scale(1.04); box-shadow:var(--shadow-lg); z-index:2; }
 .audience-card__icon { display:inline-flex; font:700 .8rem var(--font-display); color:var(--verde-turquesa); letter-spacing:.12em; margin-bottom:var(--sp-4); }
 .audience-card h3 { font:700 1.1rem/1.25 var(--font-display); color:var(--azul-profundo); margin-bottom:var(--sp-3); }
 .audience-card p { color:var(--texto-suave); font-size:.95rem; }
