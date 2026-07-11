@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solvex SpA — Soluciones Tecnológicas a Medida</title>
+
+    <!-- SEO / Social -->
+    <meta name="description" content="Solvex SpA transforma problemas complejos en software de calidad. Desarrollo a medida, aplicaciones web y móviles, integración de sistemas y consultoría tecnológica.">
+    <meta name="theme-color" content="#0C447C">
+    <meta property="og:title" content="Solvex SpA — Soluciones Tecnológicas a Medida">
+    <meta property="og:description" content="Software de calidad que optimiza los procesos y la transformación digital de tu organización.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="logo.png">
+
+    <!-- Favicon (isotipo Solvex) -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Tipografía premium: Space Grotesk (display) + Inter (cuerpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Salto de accesibilidad al contenido principal -->
+    <a href="#inicio" class="skip-link">Saltar al contenido</a>
+
+    <!-- Indicador de progreso de scroll -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- ================= FONDO GLOBAL (blobs + noise) ================= -->
+    <div class="bg-layer" aria-hidden="true">
+        <div class="blob blob--1"></div>
+        <div class="blob blob--2"></div>
+        <div class="blob blob--3"></div>
+        <div class="noise"></div>
+    </div>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar" id="navbar">
+        <div class="navbar__inner">
+            <a href="#inicio" class="logo" aria-label="Solvex SpA — inicio">
+                <span class="logo__mark" aria-hidden="true"><picture><source type="image/webp" srcset="isotipo-trans.webp"><img src="isotipo-trans.png" alt="" width="34" height="34"></picture></span>
+                <span class="logo__text">SOLVEX <span>SpA</span></span>
+            </a>
+
+            <nav class="nav" aria-label="Navegación principal">
+                <ul class="nav__links" id="navLinks">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#caso-exito">Proyecto INAE</a></li>
+                    <li><a href="#propuesta">Propuesta</a></li>
+                    <li><a href="#nosotros">Empresa</a></li>
+                    <li><a href="#contacto" class="btn-nav">Cotizar</a></li>
+                </ul>
+            </nav>
+
+            <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ================= HERO ================= -->
+        <section id="inicio" class="hero">
+            <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+            <div class="hero__spotlight" aria-hidden="true"></div>
+            <div class="hero__content">
+                <span class="pill" data-animate>
+                    <span class="pill__dot"></span>
+                    Ingeniería de software · Chile
+                </span>
+                <h1 class="hero__title" data-animate>
+                    Soluciones tecnológicas
+                    <span class="grad-text">a la medida de tu visión</span>
+                </h1>
+                <p class="hero__subtitle" data-animate>
+                    Transformamos problemas complejos en oportunidades de mejora, creando
+                    software de calidad que impulsa la transformación digital de tu organización.
+                </p>
+                <div class="hero__actions" data-animate>
+                    <a href="#contacto" class="btn btn--primary" data-ripple>
+                        Iniciar Proyecto
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </a>
+                    <a href="#servicios" class="btn btn--ghost" data-ripple>Ver servicios</a>
+                </div>
+
+                <div class="hero__stats" data-animate>
+                    <div class="hero__stat">
+                        <span class="counter" data-target="100" data-suffix="%">0</span>
+                        <p>Proyectos a medida</p>
+                    </div>
+                    <div class="hero__stat">
+                        <span class="counter" data-target="5" data-suffix=" etapas">0</span>
+                        <p>Proceso de trabajo</p>
+                    </div>
+                    <div class="hero__stat">
+                        <span class="counter" data-target="1" data-prefix="INAE">0</span>
+                        <p>Proyecto destacado</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#servicios" class="hero__scroll" aria-label="Desplazar a servicios">
+                <span></span>
+            </a>
+        </section>
+
+        <!-- separador -->
+        <div class="section-divider" aria-hidden="true">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,90 1080,-10 1440,40 L1440,80 L0,80 Z"></path></svg>
+        </div>
+
+        <!-- ================= PRUEBA SOCIAL / CONFIANZA ================= -->
+        <section class="trust" aria-label="Señales de confianza">
+            <div class="contenedor trust__inner" data-animate>
+                <p class="trust__label">Una propuesta preparada para crecer</p>
+                <ul class="trust__items">
+                    <li><span>●</span> Prototipo funcional de INAE</li>
+                    <li><span>●</span> Soluciones escalables y seguras</li>
+                    <li><span>●</span> Empresas e instituciones</li>
+                    <li><span>●</span> Desarrollo a medida</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ================= SERVICIOS ================= -->
+        <section id="servicios" class="section servicios">
+            <div class="contenedor">
+                <header class="section__head" data-animate>
+                    <span class="eyebrow">Qué hacemos</span>
+                    <h2 class="section__title">Servicios diseñados para escalar</h2>
+                    <p class="section__lead">Tecnología robusta, elegante y pensada para resolver los desafíos reales de tu institución.</p>
+                </header>
+
+                <div class="bento" id="gridServicios">
+                    <!-- Card destacada (ocupa dos filas): servicio insignia -->
+                    <article class="card card--feature" data-nodes data-animate>
+                        <canvas class="card__nodes" aria-hidden="true"></canvas>
+                        <div class="card__glow" aria-hidden="true"></div>
+                        <span class="card__tag">Servicio insignia</span>
+                        <div class="card__icon card__icon--lg">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/><path d="m7 9 2 2-2 2M13 13h4"/></svg>
+                        </div>
+                        <h3>Desarrollo a Medida</h3>
+                        <p>Plataformas robustas y eficientes, diseñadas específicamente para resolver los desafíos únicos de tu empresa. Desde el análisis hasta el despliegue, construimos software que se adapta a tus procesos y crece contigo.</p>
+                        <ul class="card__points">
+                            <li>Arquitectura escalable</li>
+                            <li>Código mantenible</li>
+                            <li>Entrega iterativa</li>
+                        </ul>
+                    </article>
+
+                    <article class="card" data-nodes data-animate>
+                        <canvas class="card__nodes" aria-hidden="true"></canvas>
+                        <div class="card__glow" aria-hidden="true"></div>
+                        <div class="card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01"/></svg>
+                        </div>
+                        <h3>Aplicaciones Web y Móviles</h3>
+                        <p>Aplicaciones intuitivas, escalables y multiplataforma que acercan tu organización a sus usuarios.</p>
+                    </article>
+
+                    <article class="card" data-nodes data-animate>
+                        <canvas class="card__nodes" aria-hidden="true"></canvas>
+                        <div class="card__glow" aria-hidden="true"></div>
+                        <div class="card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+                        </div>
+                        <h3>Integración de Sistemas</h3>
+                        <p>Conectamos tus plataformas actuales para lograr un flujo de información automatizado y sin interrupciones.</p>
+                    </article>
+
+                    <article class="card card--wide" data-nodes data-animate>
+                        <canvas class="card__nodes" aria-hidden="true"></canvas>
+                        <div class="card__glow" aria-hidden="true"></div>
+                        <div class="card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg>
+                        </div>
+                        <h3>Consultoría Tecnológica</h3>
+                        <p>Asesoría experta para guiar tu transformación digital con estrategias modernas y basadas en datos.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CASO DE ÉXITO (INAE) ================= -->
+        <section id="caso-exito" class="section caso-exito">
+            <div class="contenedor grid-2-col">
+                <div class="caso-texto" data-animate>
+                    <span class="badge">Primer proyecto destacado</span>
+                    <h2 class="section__title section__title--left">INAE: Prevención de deserción estudiantil</h2>
+                    <p>Como muestra de nuestra capacidad resolutiva, desarrollamos <strong>INAE</strong>, una plataforma integral diseñada para instituciones de educación superior.</p>
+                    <p>Combina monitoreo emocional, organización académica y mentorías entre pares, permitiendo a las Direcciones de Asuntos Estudiantiles (DAE) detectar alertas de riesgo en tiempo real y actuar de forma preventiva.</p>
+                    <ul class="lista-beneficios">
+                        <li><span class="check" aria-hidden="true">✓</span> Dashboard analítico para administradores</li>
+                        <li><span class="check" aria-hidden="true">✓</span> Gestión segura y confidencial de datos</li>
+                        <li><span class="check" aria-hidden="true">✓</span> Sistema automatizado de alertas de riesgo</li>
+                    </ul>
+                </div>
+                <div class="caso-imagen" data-tilt data-animate>
+                    <div class="caso-imagen__frame">
+                        <picture>
+                            <source type="image/webp" srcset="inae-760.webp 760w, inae-1140.webp 1140w" sizes="(max-width: 768px) 90vw, 560px">
+                            <img src="inae.png" alt="Captura de la plataforma INAE" class="img-inae"
+                                 width="1842" height="881" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROPUESTA DE VALOR ================= -->
+        <section id="propuesta" class="section propuesta">
+            <div class="contenedor">
+                <header class="section__head" data-animate>
+                    <span class="eyebrow">Nuestra diferencia</span>
+                    <h2 class="section__title">No vendemos software genérico.<br>Resolvemos desafíos reales.</h2>
+                    <p class="section__lead">Analizamos cada necesidad y la convertimos en una solución tecnológica personalizada, eficiente, escalable y preparada para generar valor concreto.</p>
+                </header>
+
+                <div class="value-grid">
+                    <article class="value-card value-card--featured" data-animate>
+                        <span class="value-card__number">01</span>
+                        <h3>Diagnóstico estratégico</h3>
+                        <p>Escuchamos, investigamos y comprendemos el problema antes de proponer una solución.</p>
+                    </article>
+                    <article class="value-card" data-animate>
+                        <span class="value-card__number">02</span>
+                        <h3>Desarrollo a medida</h3>
+                        <p>Creamos tecnología alineada con los procesos, objetivos y realidad de cada cliente.</p>
+                    </article>
+                    <article class="value-card" data-animate>
+                        <span class="value-card__number">03</span>
+                        <h3>Soluciones escalables</h3>
+                        <p>Diseñamos plataformas capaces de crecer, evolucionar e incorporar nuevas necesidades.</p>
+                    </article>
+                    <article class="value-card" data-animate>
+                        <span class="value-card__number">04</span>
+                        <h3>Acompañamiento cercano</h3>
+                        <p>Mantenemos comunicación transparente y apoyo durante todo el ciclo del proyecto.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PÚBLICO OBJETIVO ================= -->
+        <section id="publico" class="section publico">
+            <div class="contenedor">
+                <header class="section__head" data-animate>
+                    <span class="eyebrow">A quién ayudamos</span>
+                    <h2 class="section__title">Tecnología para organizaciones que quieren avanzar</h2>
+                    <p class="section__lead">Trabajamos con empresas e instituciones que necesitan digitalizar procesos, automatizar tareas o desarrollar soluciones para desafíos específicos.</p>
+                </header>
+
+                <div class="audience-grid">
+                    <article class="audience-card" data-animate>
+                        <span class="audience-card__icon">01</span>
+                        <h3>Empresas y organizaciones</h3>
+                        <p>Pequeñas, medianas y grandes empresas de distintos rubros que buscan optimizar su operación.</p>
+                    </article>
+                    <article class="audience-card" data-animate>
+                        <span class="audience-card__icon">02</span>
+                        <h3>Instituciones educacionales</h3>
+                        <p>Soluciones para gestión, bienestar y permanencia estudiantil, como nuestro proyecto INAE.</p>
+                    </article>
+                    <article class="audience-card" data-animate>
+                        <span class="audience-card__icon">03</span>
+                        <h3>Organismos públicos y privados</h3>
+                        <p>Plataformas seguras y escalables para modernizar servicios y procesos institucionales.</p>
+                    </article>
+                    <article class="audience-card" data-animate>
+                        <span class="audience-card__icon">04</span>
+                        <h3>Startups y emprendedores</h3>
+                        <p>Acompañamiento para transformar una idea en un producto digital funcional y preparado para crecer.</p>
+                    </article>
+                </div>
+
+                <div class="decision-band" data-animate>
+                    <div>
+                        <span class="eyebrow">Pensado para quienes deciden</span>
+                        <h3>Información clara para decisiones tecnológicas con menor riesgo</h3>
+                    </div>
+                    <ul>
+                        <li>Gerentes y directores</li>
+                        <li>Dueños de empresas</li>
+                        <li>Encargados de tecnología</li>
+                        <li>Direcciones de asuntos estudiantiles</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROCESO ================= -->
+        <section id="proceso" class="section proceso">
+            <div class="contenedor">
+                <header class="section__head" data-animate>
+                    <span class="eyebrow">Cómo trabajamos</span>
+                    <h2 class="section__title">De una necesidad a una solución que genera valor</h2>
+                </header>
+                <ol class="process-line">
+                    <li data-animate><span>01</span><h3>Escuchamos</h3><p>Comprendemos el problema, el contexto y los objetivos del cliente.</p></li>
+                    <li data-animate><span>02</span><h3>Analizamos</h3><p>Identificamos necesidades, riesgos y oportunidades de mejora.</p></li>
+                    <li data-animate><span>03</span><h3>Diseñamos</h3><p>Definimos una solución tecnológica adaptada a cada organización.</p></li>
+                    <li data-animate><span>04</span><h3>Desarrollamos</h3><p>Construimos de forma iterativa, segura, mantenible y escalable.</p></li>
+                    <li data-animate><span>05</span><h3>Acompañamos</h3><p>Apoyamos la implementación, mantención y evolución del producto.</p></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ================= NOSOTROS ================= -->
+        <section id="nosotros" class="section nosotros" data-nodes="dark">
+            <canvas class="card__nodes" aria-hidden="true"></canvas>
+            <div class="card__glow" aria-hidden="true"></div>
+            <div class="contenedor" data-animate>
+                <header class="section__head">
+                    <span class="eyebrow eyebrow--light">Nuestra dirección</span>
+                    <h2 class="section__title section__title--light">Una empresa creada para resolver, crecer e impactar</h2>
+                </header>
+
+                <div class="purpose-grid">
+                    <article class="purpose-card" data-animate>
+                        <span class="purpose-card__label">Misión</span>
+                        <h3>Transformar problemas complejos en oportunidades de mejora.</h3>
+                        <p>Desarrollamos soluciones tecnológicas innovadoras y software de calidad que optimiza procesos, genera valor y contribuye al crecimiento de las organizaciones mediante un servicio cercano, confiable y orientado a resultados.</p>
+                        <div class="purpose-tags"><span>Innovación</span><span>Cercanía</span><span>Resultados</span></div>
+                    </article>
+                    <article class="purpose-card purpose-card--vision" data-animate>
+                        <span class="purpose-card__label">Visión</span>
+                        <h3>Convertirnos en un referente tecnológico en Chile.</h3>
+                        <p>Aspiramos a ser reconocidos por nuestra innovación, calidad y capacidad para crear tecnologías que generen impacto positivo en las organizaciones y la sociedad, como aliados estratégicos de la transformación digital.</p>
+                        <div class="purpose-tags"><span>Referentes en Chile</span><span>Impacto positivo</span><span>Transformación digital</span></div>
+                    </article>
+                </div>
+
+                <div class="values-head" data-animate>
+                    <span class="eyebrow eyebrow--light">Lo que guía cada proyecto</span>
+                    <h3>Nuestros valores institucionales</h3>
+                </div>
+                <div class="valores valores--five">
+                    <div class="valor" data-animate><strong>Responsabilidad</strong><span>Cumplimos compromisos, plazos y estándares acordados.</span></div>
+                    <div class="valor" data-animate><strong>Calidad</strong><span>Desarrollamos software seguro, eficiente y confiable.</span></div>
+                    <div class="valor" data-animate><strong>Innovación</strong><span>Aplicamos tecnologías modernas y soluciones escalables.</span></div>
+                    <div class="valor" data-animate><strong>Transparencia</strong><span>Mantenemos una comunicación clara en cada etapa.</span></div>
+                    <div class="valor" data-animate><strong>Orientación al cliente</strong><span>Convertimos necesidades en resultados concretos.</span></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= CTA INTERMEDIO ================= -->
+        <section class="cta-band" aria-label="Llamado a la acción">
+            <div class="contenedor cta-band__inner" data-animate>
+                <div>
+                    <h2 class="cta-band__title">¿Listo para transformar tu organización?</h2>
+                    <p class="cta-band__text">Conversemos sobre tu desafío tecnológico. Sin compromiso.</p>
+                </div>
+                <a href="#contacto" class="btn btn--primary" data-ripple>
+                    Cotizar ahora
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- ================= CONTACTO ================= -->
+        <section id="contacto" class="section contacto">
+            <div class="contenedor">
+                <header class="section__head" data-animate>
+                    <span class="eyebrow">Hablemos</span>
+                    <h2 class="section__title">Cotiza tu proyecto</h2>
+                    <p class="section__lead">Cuéntanos tu necesidad y te propondremos el mejor camino tecnológico.</p>
+                </header>
+
+                <div class="form-container" data-animate>
+                    <form class="formulario" id="cotizarForm" novalidate>
+                        <div class="input-group">
+                            <input type="text" id="nombre" name="nombre" placeholder=" " required>
+                            <label for="nombre">Nombre completo</label>
+                            <span class="input-line"></span>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="empresa" name="empresa" placeholder=" " required>
+                            <label for="empresa">Institución / Empresa</label>
+                            <span class="input-line"></span>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" placeholder=" " required>
+                            <label for="email">Correo institucional</label>
+                            <span class="input-line"></span>
+                        </div>
+                        <div class="input-group">
+                            <textarea id="mensaje" name="mensaje" rows="4" placeholder=" " required></textarea>
+                            <label for="mensaje">Háblanos de tu necesidad tecnológica</label>
+                            <span class="input-line"></span>
+                        </div>
+                        <button type="submit" class="btn btn--primary form-btn" data-ripple>Enviar mensaje</button>
+                        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="contenedor footer__grid">
+            <div class="footer__brand">
+                <a href="#inicio" class="logo">
+                    <span class="logo__mark" aria-hidden="true"><picture><source type="image/webp" srcset="isotipo-trans.webp"><img src="isotipo-trans.png" alt="" width="34" height="34"></picture></span>
+                    <span class="logo__text">SOLVEX <span>SpA</span></span>
+                </a>
+                <p>Soluciones tecnológicas a medida para una transformación digital exitosa.</p>
+                <div class="footer__social">
+                    <a href="#contacto" aria-label="LinkedIn de Solvex, próximamente"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.4 8.65 22 11 22 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21h-4z"/></svg></a>
+                    <a href="https://github.com/walthermorarivera/Solvex_Spa_Prototipo" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Solvex"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 8.8 21.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
+                    <a href="mailto:contacto@solvex.cl" aria-label="Enviar correo a Solvex"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <h4>Navegación</h4>
+                <a href="#servicios">Servicios</a>
+                <a href="#caso-exito">Proyecto INAE</a>
+                <a href="#propuesta">Propuesta de valor</a>
+                <a href="#publico">Público objetivo</a>
+                <a href="#nosotros">Misión y visión</a>
+                <a href="#contacto">Cotizar</a>
+            </div>
+            <div class="footer__col">
+                <h4>Contacto</h4>
+                <p>Santiago, Chile</p>
+                <p>Atención remota en todo Chile</p>
+                <p>contacto@solvex.cl</p>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2026 Solvex SpA. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- GSAP + ScrollTrigger (CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="main.js" defer></script>
+</body>
+</html>
