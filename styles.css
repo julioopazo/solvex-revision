@@ -694,6 +694,7 @@ ul { list-style: none; }
 .input-group { position: relative; margin-bottom: 1.8rem; }
 .input-group input,
 .input-group textarea {
+    display: block;
     width: 100%;
     padding: 1.1rem 0.4rem 0.5rem;
     border: none;
@@ -1305,6 +1306,10 @@ section[id] {
 
 #preguntas {
     scroll-margin-top: 15px;
+}
+
+#contacto {
+    scroll-margin-top: -100px;
 }
 
 /* Mantiene los iconos sociales compactos y con blanco táctil suficiente. */
