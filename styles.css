@@ -1031,19 +1031,14 @@ ul { list-style: none; }
     --pad-seccion: clamp(4rem, 7vw, 6.5rem);
 }
 
+html {
+    scroll-padding-top: 88px;
+}
+
 section[id] {
     scroll-margin-top: 88px;
 }
 
-/* Las secciones inferiores se renderizan al acercarse al viewport */
-#propuesta,
-#publico,
-#proceso,
-#nosotros,
-#contacto {
-    content-visibility: auto;
-    contain-intrinsic-size: 900px;
-}
 
 /* Hero: señales verificables, no métricas decorativas */
 .hero__stats {
@@ -1288,6 +1283,28 @@ section[id] {
 #nosotros [data-animate] {
     opacity: 1 !important;
     transform: none !important;
+}
+/* Ajusta la posición al hacer clic en Empresa
+   FAQ: posición estable desde el primer clic. */
+
+#nosotros {
+    scroll-margin-top: -10px;
+}
+
+#propuesta {
+    scroll-margin-top: -110px;
+}
+
+#caso-exito {
+    scroll-margin-top: -30px;
+}
+
+#servicios {
+    scroll-margin-top: -100px;
+}
+
+#preguntas {
+    scroll-margin-top: 15px;
 }
 
 /* Mantiene los iconos sociales compactos y con blanco táctil suficiente. */
