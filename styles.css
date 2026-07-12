@@ -1579,3 +1579,96 @@ section[id] {
         padding-inline: 1.15rem;
     }
 }
+
+
+/* =========================================================
+   22. REFINAMIENTO PROFESIONAL — TARJETAS Y MENÚ MÓVIL
+========================================================= */
+
+/* Una única interacción para todas las superficies tipo tarjeta.
+   Se elimina el escalado para evitar saltos, solapamientos y ruido visual. */
+.card:hover,
+.value-card:hover,
+.audience-card:hover,
+.purpose-card:hover,
+.valor:hover,
+.decision-band li:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    z-index: 2;
+}
+
+/* Iconos: respuesta coherente y contenida, sin rotaciones distintas. */
+.card:hover .card__icon,
+.value-card:hover .value-card__icon {
+    transform: translateY(-2px);
+}
+
+/* En dispositivos táctiles se evita el hover persistente. */
+@media (hover: none) {
+    .card:hover,
+    .value-card:hover,
+    .audience-card:hover,
+    .purpose-card:hover,
+    .valor:hover,
+    .decision-band li:hover {
+        transform: none;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .card:hover .card__icon,
+    .value-card:hover .value-card__icon {
+        transform: none;
+    }
+}
+
+/* Bloquea el documento mientras el menú está abierto. */
+body.menu-open {
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+/* Al abrir el menú se elimina temporalmente el backdrop-filter del navbar.
+   Esto evita que el panel fixed quede limitado por el encabezado al hacer scroll. */
+.navbar.menu-open {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    border-bottom: 0 !important;
+}
+
+/* El logo y el botón de cierre permanecen por encima del panel. */
+.navbar.menu-open .logo,
+.navbar.menu-open .nav__toggle {
+    position: relative;
+    z-index: 1003;
+}
+
+@media (max-width: 768px) {
+    .nav__links {
+        top: 0;
+        right: 0;
+        bottom: auto;
+        left: auto;
+        width: min(82vw, 340px);
+        height: 100dvh;
+        min-height: 100vh;
+        max-height: 100dvh;
+        justify-content: flex-start;
+        gap: 1.35rem;
+        padding: clamp(6.5rem, 16vh, 8rem) 2rem 2.5rem;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        z-index: 1002;
+        border-radius: 0;
+    }
+
+    .nav__links.open {
+        transform: translateX(0);
+    }
+
+    .nav__toggle {
+        z-index: 1004;
+    }
+}

@@ -49,6 +49,8 @@
 
         const openMenu = () => {
             navLinks.classList.add("open");
+            navbar?.classList.add("menu-open");
+            document.body.classList.add("menu-open");
             navToggle.setAttribute("aria-expanded", "true");
             navToggle.setAttribute("aria-label", "Cerrar menú");
             lastFocused = document.activeElement;
@@ -57,6 +59,8 @@
         };
         const closeMenu = (returnFocus = true) => {
             navLinks.classList.remove("open");
+            navbar?.classList.remove("menu-open");
+            document.body.classList.remove("menu-open");
             navToggle.setAttribute("aria-expanded", "false");
             navToggle.setAttribute("aria-label", "Abrir menú");
             document.removeEventListener("keydown", onKeydown);
