@@ -28,7 +28,6 @@ en sitios como Stripe, Linear, Vercel y Framer.
 ## Stack y filosofía
 
 - **HTML5 + CSS3 + JavaScript vanilla** (sin framework ni paso de build).
-- **GSAP + ScrollTrigger** (vía CDN) para animaciones de scroll a 60 FPS.
 - **Canvas 2D** para las redes de partículas (hero y tarjetas).
 - **Tipografía:** Space Grotesk (display) + Inter (cuerpo), desde Google Fonts.
 - **Iconografía:** SVG inline (estilo Lucide), sin dependencias en runtime.
@@ -233,8 +232,7 @@ const isTouch        = matchMedia("(hover: none)").matches;
 |--------|----------|
 | **Navbar inteligente** | scroll blur + hide/show + barra de progreso |
 | **Scroll-spy** | `IntersectionObserver` marca la sección activa (`aria-current`) |
-| **Reveal (GSAP)** | fade-up de secciones al entrar en viewport, con stagger en cards |
-| **Contadores** | count-up desde 0 al entrar en viewport |
+| **Visibilidad permanente** | todo el contenido se muestra desde el inicio, sin depender del scroll |
 | **Partículas hero** | red de nodos en canvas, pausada fuera de viewport |
 | **Nodos por tarjeta/panel** | mini red de partículas activa solo en hover (servicios y panel Nosotros); variante `data-nodes="dark"` para fondos azules |
 | **Spotlight** | luz que sigue el mouse en el hero |
@@ -496,3 +494,26 @@ desplegar en cualquier hosting estático (GitHub Pages, Netlify, Vercel, etc.).*
 - Las tarjetas que se agrandan utilizan la misma intensidad visual de Misión y Visión.
 - El icono de WhatsApp abre el enlace oficial configurado: https://wa.link/0fi25d
 - Se mantienen las demás microinteracciones: partículas, iluminación, botones, modal y navegación.
+
+
+## Preguntas frecuentes
+
+Se incorporó una sección FAQ accesible con `details` y `summary`, sin JavaScript adicional.
+Las respuestas son referenciales y están redactadas para un escenario académico y comercial
+realista, evitando promesas exageradas:
+
+- plazos estimados;
+- trabajo con empresas pequeñas;
+- propiedad del código;
+- soporte posterior;
+- definición de costos;
+- primera conversación.
+
+## Refinamiento 9.5
+
+- Se redujeron partículas repetidas en las tarjetas de servicios.
+- Se eliminó GSAP y ScrollTrigger porque el contenido permanece siempre visible.
+- Se ajustó el copy de consultoría para mantener un tono profesional y creíble.
+- INAE se presenta como prototipo destacado, sin atribuir resultados no medidos.
+- Se redujo el espaciado vertical general sin eliminar contenidos exigidos por la pauta.
+- Se añadió microcopy transparente al formulario demostrativo.

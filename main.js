@@ -14,10 +14,10 @@
     "use strict";
 
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const hasGSAP = typeof window.gsap !== "undefined";
+    const hasGSAP = false;
     const isTouch = window.matchMedia("(hover: none)").matches;
 
-    document.documentElement.classList.add(hasGSAP ? "gsap-ready" : "no-gsap");
+    document.documentElement.classList.add("no-gsap");
 
     /* ---------------------------------------------------------
        2. NAVBAR INTELIGENTE
@@ -488,8 +488,8 @@
     function init() {
         onScroll();
         initScrollSpy();
-        initReveal();
-        initCounters();
+        // Reveal retirado: todo el contenido permanece visible.
+        // Contadores retirados: se usan señales verificables.
         initParticles();
         initSpotlight();
         initTilt();

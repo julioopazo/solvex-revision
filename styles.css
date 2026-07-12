@@ -66,10 +66,6 @@
     --font-display: 'Space Grotesk', 'Inter', sans-serif;
     --font-body: 'Inter', system-ui, sans-serif;
 
-    /* Acento terciario (violeta tecnológico) para profundidad y foco */
-    --violeta: #7b6cf6;
-    --violeta-soft: rgba(123, 108, 246, 0.14);
-
     /* Radios */
     --r-sm: 10px;
     --r-md: 16px;
@@ -1352,4 +1348,212 @@ section[id] {
 /* El enlace de WhatsApp se comporta como vínculo externo real. */
 .footer__social a[aria-label*="WhatsApp"] {
     position: relative;
+}
+
+
+/* =========================================================
+   20. FAQ, LIMPIEZA VISUAL Y REFINAMIENTO 9.5
+========================================================= */
+
+/* Reduce levemente el largo general sin quitar contenidos de la pauta. */
+:root {
+    --pad-seccion: clamp(3.75rem, 6.5vw, 5.75rem);
+}
+
+/* Servicios sin canvas: glow CSS más liviano y elegante. */
+#servicios .card {
+    isolation: isolate;
+}
+
+#servicios .card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+        radial-gradient(300px circle at 18% 8%,
+            rgba(93,202,165,.14),
+            transparent 58%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--dur-2) var(--ease);
+}
+
+#servicios .card:hover::after,
+#servicios .card:focus-within::after {
+    opacity: 1;
+}
+
+#servicios .card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* FAQ compacta y accesible, sin JavaScript. */
+.faq {
+    background:
+        linear-gradient(180deg,
+            transparent,
+            rgba(93,202,165,.05),
+            transparent);
+}
+
+.faq-grid {
+    width: min(980px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-4);
+    align-items: start;
+}
+
+.faq-item {
+    border: 1px solid rgba(12,68,124,.11);
+    border-radius: var(--r-lg);
+    background: rgba(255,255,255,.72);
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(14px);
+    overflow: hidden;
+    transition:
+        transform var(--dur-2) var(--ease),
+        box-shadow var(--dur-2) var(--ease),
+        border-color var(--dur-2) var(--ease);
+}
+
+.faq-item:hover,
+.faq-item:focus-within {
+    transform: translateY(-4px);
+    border-color: rgba(93,202,165,.4);
+    box-shadow: var(--shadow-md);
+}
+
+.faq-item[open] {
+    border-color: rgba(93,202,165,.48);
+    box-shadow: var(--shadow-md);
+}
+
+.faq-item summary {
+    min-height: 72px;
+    padding: 1.2rem 1.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    list-style: none;
+    cursor: pointer;
+    color: var(--azul-profundo);
+    font: 700 1rem/1.35 var(--font-display);
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary:focus-visible {
+    outline: 3px solid var(--verde-turquesa);
+    outline-offset: -3px;
+}
+
+.faq-icon {
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(93,202,165,.14);
+    color: var(--verde-hover);
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition:
+        transform var(--dur-2) var(--ease),
+        background var(--dur-2) var(--ease);
+}
+
+.faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+    background: rgba(93,202,165,.24);
+}
+
+.faq-answer {
+    padding: 0 1.35rem 1.35rem;
+}
+
+.faq-answer p {
+    color: var(--texto-suave);
+    font-size: .94rem;
+    line-height: 1.65;
+    max-width: 60ch;
+}
+
+/* Evita títulos excesivamente grandes en bloques institucionales. */
+.nosotros .section__title {
+    font-size: clamp(1.9rem, 1.4rem + 2vw, 2.8rem);
+}
+
+/* Conversión: el texto demostrativo debe verse, pero no competir. */
+.form-note {
+    max-width: 58ch;
+    margin-inline: auto;
+    text-align: center;
+}
+
+/* Movimiento sobrio y unificado. */
+.card:hover,
+.value-card:hover,
+.audience-card:hover,
+.purpose-card:hover,
+.valor:hover {
+    transform: translateY(-6px) scale(1.02);
+}
+
+/* Responsive de FAQ y densidad general. */
+@media (max-width: 768px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-item summary {
+        min-height: 66px;
+        padding: 1rem 1.1rem;
+    }
+
+    .faq-answer {
+        padding: 0 1.1rem 1.1rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .faq-grid {
+        gap: .8rem;
+    }
+
+    .faq-item summary {
+        font-size: .94rem;
+    }
+}
+
+
+/* =========================================================
+   21. NAVEGACIÓN FAQ
+========================================================= */
+
+/* Ajuste de separación para incorporar FAQ sin saturar el navbar. */
+.nav__links {
+    gap: clamp(1rem, 1.7vw, 1.6rem);
+}
+
+/* Mantiene el acceso FAQ cómodo en pantallas medianas. */
+@media (max-width: 1050px) and (min-width: 769px) {
+    .nav__links {
+        gap: .9rem;
+    }
+
+    .nav__links a {
+        font-size: .9rem;
+    }
+
+    .btn-nav {
+        padding-inline: 1.15rem;
+    }
 }
