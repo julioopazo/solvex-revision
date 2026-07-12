@@ -183,13 +183,10 @@ Capa fija (`.bg-layer`) con tres **blobs** de color desenfocados en movimiento l
 - Título gigante con escala `--fs-display` y una línea con gradiente de texto.
 - **Red de partículas en canvas** (nodos conectados que evocan el átomo del logo).
 - **Spotlight** que sigue el mouse (`--mx`/`--my` + `radial-gradient`).
-- Stats con **contador animado** desde 0.
+- Bloque de señales verificables: desarrollo a medida, proceso en cinco etapas y proyecto destacado INAE.
 - Entrada animada con GSAP (stagger).
 - Espaciados compactos para que las **estadísticas sean visibles en la primera
   vista** (above the fold), sin necesidad de hacer scroll.
-
-### Prueba social
-Banda (`.trust`) con señales de confianza reales — sin inventar clientes.
 
 ### Servicios — Bento grid
 Grid **asimétrico**: una tarjeta insignia alta (2×2) + tarjetas de apoyo + una ancha.
@@ -217,7 +214,7 @@ Formulario con **labels flotantes**, línea de foco animada y **validación visu
 (sin backend: solo feedback estético).
 
 ### Footer
-Multi-columna, con isotipo, enlaces, contacto, iconos sociales (SVG) y accesos a política de privacidad, términos, cookies y aviso legal mediante un modal accesible.
+Multi-columna, con isotipo, enlaces, contacto, iconos sociales reales y accesos a política de privacidad, términos y aviso legal mediante un modal accesible.
 
 ---
 
@@ -472,3 +469,30 @@ Y en JS: comprobar la media query antes de iniciar canvas/animaciones.
 
 *Documentación del rediseño premium — sitio estático, sin paso de build, listo para
 desplegar en cualquier hosting estático (GitHub Pages, Netlify, Vercel, etc.).*
+
+
+## Versión final profesional
+
+- Mantiene nombre, logo, misión, visión, servicios, público objetivo, propuesta de valor, contacto, ubicación, imágenes referenciales y enlaces sociales exigidos por la pauta.
+- Reemplaza métricas decorativas por señales verificables.
+- Presenta INAE como mini caso de estudio sin inventar resultados.
+- Reduce partículas repetidas para mejorar jerarquía y rendimiento.
+- Añade expectativas claras antes del formulario y mejoras de accesibilidad.
+- El formulario continúa siendo demostrativo y no envía ni almacena información.
+
+
+## Ajustes finales de visibilidad y contacto
+
+- La sección **Nuestra dirección** se muestra completa al ingresar, sin depender de revelados escalonados.
+- Se incorporó un enlace referencial de LinkedIn.
+- Se incorporó un acceso visual de WhatsApp que dirige a la sección de contacto.
+- GitHub y correo se mantienen como canales adicionales.
+
+
+## Ajustes finales V3
+
+- Todo el contenido del sitio permanece visible desde el inicio.
+- Se desactivaron los efectos de aparición dependientes del scroll.
+- Las tarjetas que se agrandan utilizan la misma intensidad visual de Misión y Visión.
+- El icono de WhatsApp abre el enlace oficial configurado: https://wa.link/0fi25d
+- Se mantienen las demás microinteracciones: partículas, iluminación, botones, modal y navegación.

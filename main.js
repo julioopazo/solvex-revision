@@ -107,43 +107,10 @@
        3. REVEAL POR SCROLL (GSAP + ScrollTrigger)
     --------------------------------------------------------- */
     function initReveal() {
-        if (!hasGSAP || prefersReduced) return;
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Entrada del hero (sin scroll, al cargar)
-        const heroItems = gsap.utils.toArray("#inicio [data-animate]");
-        gsap.set(heroItems, { opacity: 0, y: 30 });
-        gsap.to(heroItems, {
-            opacity: 1, y: 0, duration: 0.9, ease: "power3.out",
-            stagger: 0.12, delay: 0.15,
-        });
-
-        // Resto de secciones al entrar en viewport
-        // (las tarjetas de servicios se animan aparte con el batch de abajo;
-        //  se excluyen aquí para no dejar dos transforms inline que anulen el :hover)
-        gsap.utils.toArray("[data-animate]").forEach((el) => {
-            if (el.closest("#inicio") || el.closest("#gridServicios")) return;
-            gsap.fromTo(el,
-                { opacity: 0, y: 40 },
-                {
-                    opacity: 1, y: 0, duration: 0.8, ease: "power3.out",
-                    clearProps: "transform",
-                    scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none none" },
-                }
-            );
-        });
-
-        // Stagger específico para las tarjetas de servicios.
-        // clearProps: "transform" elimina el transform inline al terminar,
-        // dejando que el hover de CSS (elevación + escala) funcione.
-        ScrollTrigger.batch("#gridServicios .card", {
-            start: "top 88%",
-            onEnter: (batch) =>
-                gsap.fromTo(batch,
-                    { opacity: 0, y: 50 },
-                    { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.12, overwrite: true, clearProps: "transform" }
-                ),
-        });
+        // Todos los contenidos permanecen visibles.
+        // Se desactiva el reveal por scroll para evitar espacios vacíos
+        // o contenidos que aparezcan demasiado tarde.
+        return;
     }
 
     /* ---------------------------------------------------------
@@ -427,8 +394,10 @@
         const validate = (input) => {
             const group = input.closest(".input-group");
             const ok = input.checkValidity() && input.value.trim() !== "";
+            const shouldShowError = !ok && input.value.trim() !== "";
             group.classList.toggle("valid", ok);
-            group.classList.toggle("invalid", !ok && input.value.trim() !== "");
+            group.classList.toggle("invalid", shouldShowError);
+            input.setAttribute("aria-invalid", shouldShowError ? "true" : "false");
             return ok;
         };
 
@@ -486,15 +455,34 @@
                 if (!item) return;
                 title.textContent = item.title;
                 content.innerHTML = item.html;
+                modal.dataset.returnFocus = button.id || "";
                 modal.showModal();
+                document.body.classList.add("modal-open");
+                requestAnimationFrame(() => close.focus());
             });
         });
 
-        close.addEventListener("click", () => modal.close());
+        const closeModal = () => {
+            modal.close();
+            document.body.classList.remove("modal-open");
+        };
+
+        close.addEventListener("click", closeModal);
         modal.addEventListener("click", (event) => {
-            if (event.target === modal) modal.close();
+            if (event.target === modal) closeModal();
+        });
+        modal.addEventListener("close", () => {
+            document.body.classList.remove("modal-open");
         });
     }
+
+
+    /* ---------------------------------------------------------
+       10. PAUSA DE ANIMACIONES CUANDO LA PESTAÑA NO ESTÁ VISIBLE
+    --------------------------------------------------------- */
+    document.addEventListener("visibilitychange", () => {
+        document.documentElement.classList.toggle("page-hidden", document.hidden);
+    });
 
     /* --------------------------------------------------------- */
     function init() {
