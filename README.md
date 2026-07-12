@@ -174,7 +174,7 @@ Capa fija (`.bg-layer`) con tres **blobs** de color desenfocados en movimiento l
 
 ### Navbar inteligente
 - Glassmorphism con `backdrop-filter: blur()` al hacer scroll (`.scrolled`).
-- **Hide-on-scroll-down / show-on-scroll-up** (`.hidden`).
+- **Navbar fijo y siempre visible**, con cambio de contraste al hacer scroll.
 - Sobre el hero azul el texto es blanco; al hacer scroll cambia a oscuro (contraste).
 - **Scroll-spy**: resalta el enlace de la sección visible (`aria-current`).
 - Menú móvil deslizante con **focus trap** y cierre con `Escape`.
@@ -217,7 +217,7 @@ Formulario con **labels flotantes**, línea de foco animada y **validación visu
 (sin backend: solo feedback estético).
 
 ### Footer
-Multi-columna, con isotipo, enlaces, contacto e iconos sociales (SVG).
+Multi-columna, con isotipo, enlaces, contacto, iconos sociales (SVG) y accesos a política de privacidad, términos, cookies y aviso legal mediante un modal accesible.
 
 ---
 

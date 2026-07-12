@@ -224,27 +224,47 @@
                 </header>
 
                 <div class="value-grid">
-                    <article class="value-card value-card--featured" data-nodes="dark" data-animate>
+                    <article class="value-card" data-nodes data-animate>
                         <canvas class="card__nodes" aria-hidden="true"></canvas>
                         <div class="card__glow" aria-hidden="true"></div>
+                        <div class="value-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/><path d="M8 11h6M11 8v6"/>
+                            </svg>
+                        </div>
                         <h3>Diagnóstico estratégico</h3>
                         <p>Escuchamos, investigamos y comprendemos el problema antes de proponer una solución.</p>
                     </article>
-                    <article class="value-card" data-nodes="dark" data-animate>
+                    <article class="value-card" data-nodes data-animate>
                         <canvas class="card__nodes" aria-hidden="true"></canvas>
                         <div class="card__glow" aria-hidden="true"></div>
+                        <div class="value-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/><path d="m14.5 4-5 16"/>
+                            </svg>
+                        </div>
                         <h3>Desarrollo a medida</h3>
                         <p>Creamos tecnología alineada con los procesos, objetivos y realidad de cada cliente.</p>
                     </article>
-                    <article class="value-card" data-nodes="dark" data-animate>
+                    <article class="value-card" data-nodes data-animate>
                         <canvas class="card__nodes" aria-hidden="true"></canvas>
                         <div class="card__glow" aria-hidden="true"></div>
+                        <div class="value-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/><path d="M14 8h5v5"/>
+                            </svg>
+                        </div>
                         <h3>Soluciones escalables</h3>
                         <p>Diseñamos plataformas capaces de crecer, evolucionar e incorporar nuevas necesidades.</p>
                     </article>
-                    <article class="value-card" data-nodes="dark" data-animate>
+                    <article class="value-card" data-nodes data-animate>
                         <canvas class="card__nodes" aria-hidden="true"></canvas>
                         <div class="card__glow" aria-hidden="true"></div>
+                        <div class="value-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M8 9h8M8 13h5"/>
+                            </svg>
+                        </div>
                         <h3>Acompañamiento cercano</h3>
                         <p>Mantenemos comunicación transparente y apoyo durante todo el ciclo del proyecto.</p>
                     </article>
@@ -456,10 +476,23 @@
                 <p>contacto@solvex.cl</p>
             </div>
         </div>
-        <div class="footer__bottom">
+        <div class="contenedor footer__bottom">
             <p>&copy; 2026 Solvex SpA. Todos los derechos reservados.</p>
+            <nav class="footer__legal" aria-label="Información legal">
+                <button type="button" data-legal-open="privacidad">Política de privacidad</button>
+                <button type="button" data-legal-open="terminos">Términos y condiciones</button>
+                <button type="button" data-legal-open="aviso">Aviso legal</button>
+            </nav>
         </div>
     </footer>
+
+    <dialog class="legal-modal" id="legalModal" aria-labelledby="legalTitle">
+        <div class="legal-modal__header">
+            <h2 id="legalTitle">Información legal</h2>
+            <button type="button" class="legal-modal__close" id="legalClose" aria-label="Cerrar información legal">×</button>
+        </div>
+        <div class="legal-modal__body" id="legalContent"></div>
+    </dialog>
 
     <!-- GSAP + ScrollTrigger (CDN) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

@@ -31,12 +31,8 @@
     function onScroll() {
         const y = window.scrollY;
         navbar.classList.toggle("scrolled", y > 30);
-        // Ocultar al bajar, mostrar al subir (no en el tope)
-        if (y > lastScroll && y > 300) {
-            navbar.classList.add("hidden");
-        } else {
-            navbar.classList.remove("hidden");
-        }
+        // El navbar permanece siempre visible
+        navbar.classList.remove("hidden");
         lastScroll = y;
         // Barra de progreso de scroll
         if (progress) {
@@ -323,9 +319,18 @@
             const ctx = canvas.getContext("2d", { alpha: true });
             const dpr = Math.min(window.devicePixelRatio || 1, 2);
             const onDark = card.dataset.nodes === "dark";
-            const nodeColor = onDark ? "rgba(160, 232, 210, 0.95)" : "rgba(93, 202, 165, 0.9)";
+            const isNosotros = card.classList.contains("nosotros");
+
+            // El panel "Nosotros" es mucho más grande que las demás tarjetas.
+            // Por eso necesita mayor densidad, alcance y brillo para que la red
+            // se vea tan nítida como en los CTA azules.
+            const nodeColor = isNosotros
+                ? "rgba(170, 242, 220, 1)"
+                : (onDark ? "rgba(160, 232, 210, 0.95)" : "rgba(93, 202, 165, 0.9)");
+
             const lineColor = onDark ? "190, 222, 255" : "47, 126, 203";
-            const LINK = onDark ? 130 : 92;
+            const LINK = isNosotros ? 165 : (onDark ? 130 : 92);
+            const lineStrength = isNosotros ? 0.48 : 0.30;
             const pointer = { x: -9999, y: -9999 };
             let nodes = [], raf = null, w = 0, h = 0;
 
@@ -334,11 +339,18 @@
                 w = r.width; h = r.height;
                 canvas.width = w * dpr; canvas.height = h * dpr;
                 ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-                const count = Math.min(Math.round((w * h) / 9000), 28);
+                const count = isNosotros
+                    ? Math.min(Math.max(Math.round((w * h) / 11500), 48), 78)
+                    : Math.min(Math.round((w * h) / 9000), 28);
+
                 nodes = Array.from({ length: count }, () => ({
-                    x: Math.random() * w, y: Math.random() * h,
-                    vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
-                    r: Math.random() * 1.5 + 1,
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    vx: (Math.random() - 0.5) * (isNosotros ? 0.38 : 0.3),
+                    vy: (Math.random() - 0.5) * (isNosotros ? 0.38 : 0.3),
+                    r: isNosotros
+                        ? Math.random() * 1.7 + 1.25
+                        : Math.random() * 1.5 + 1,
                 }));
             }
             function draw() {
@@ -360,8 +372,8 @@
                         if (d < LINK) {
                             ctx.beginPath();
                             ctx.moveTo(n.x, n.y); ctx.lineTo(m.x, m.y);
-                            ctx.strokeStyle = `rgba(${lineColor}, ${0.3 * (1 - d / LINK)})`;
-                            ctx.lineWidth = 1;
+                            ctx.strokeStyle = `rgba(${lineColor}, ${lineStrength * (1 - d / LINK)})`;
+                            ctx.lineWidth = isNosotros ? 1.25 : 1;
                             ctx.stroke();
                         }
                     }
@@ -443,6 +455,47 @@
         });
     }
 
+    /* ---------------------------------------------------------
+       9. MODAL DE INFORMACIÓN LEGAL
+    --------------------------------------------------------- */
+    function initLegalModal() {
+        const modal = document.getElementById("legalModal");
+        const content = document.getElementById("legalContent");
+        const title = document.getElementById("legalTitle");
+        const close = document.getElementById("legalClose");
+        if (!modal || !content || !title || !close) return;
+
+        const legalTexts = {
+            privacidad: {
+                title: "Política de privacidad",
+                html: `<h3>Información general</h3><p>Solvex SpA respeta la privacidad de quienes visitan este sitio. Este prototipo no almacena ni comparte datos personales con terceros.</p><h3>Formulario de contacto</h3><p>Los datos ingresados se utilizan únicamente para demostrar la experiencia de contacto. Actualmente el formulario no realiza un envío ni almacena información.</p><h3>Uso futuro de datos</h3><p>En una versión productiva, cualquier tratamiento de datos será informado previamente y contará con medidas de seguridad adecuadas.</p>`
+            },
+            terminos: {
+                title: "Términos y condiciones",
+                html: `<h3>Uso del sitio</h3><p>Este sitio presenta una propuesta académica y demostrativa de los servicios tecnológicos de Solvex SpA.</p><h3>Contenido</h3><p>La información publicada tiene carácter referencial y puede actualizarse sin aviso previo.</p><h3>Contratación de servicios</h3><p>Las condiciones, plazos, costos y alcances de un proyecto se definirán mediante una propuesta comercial formal.</p>`
+            },
+            aviso: {
+                title: "Aviso legal",
+                html: `<h3>Prototipo académico</h3><p>Solvex SpA corresponde a una empresa desarrollada en el contexto de un proyecto académico.</p><h3>Propiedad del contenido</h3><p>Los textos, diseños, logotipos y componentes se presentan exclusivamente para fines educativos y de evaluación.</p><h3>Responsabilidad</h3><p>La información presentada tiene fines académicos y fue elaborada a partir de fuentes públicas y oficiales consultadas en línea. No reemplaza la asesoría profesional especializada.</p>`
+            }
+        };
+
+        document.querySelectorAll("[data-legal-open]").forEach((button) => {
+            button.addEventListener("click", () => {
+                const item = legalTexts[button.dataset.legalOpen];
+                if (!item) return;
+                title.textContent = item.title;
+                content.innerHTML = item.html;
+                modal.showModal();
+            });
+        });
+
+        close.addEventListener("click", () => modal.close());
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) modal.close();
+        });
+    }
+
     /* --------------------------------------------------------- */
     function init() {
         onScroll();
@@ -455,6 +508,7 @@
         initCards();
         initRipple();
         initForm();
+        initLegalModal();
     }
 
     if (document.readyState === "loading") {
